@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
-SERVER_IP="10.200.125.80"  
+SERVER_IP="10.200.125.80"
 PORT=20002
 TOTAL_ORDERS=10000
 CUSTOMER_SET="1 2 4 8 16 32 64 128 256"
 
-out="exp2_special_1expert.csv"
+REPORT_DIR="reports"
+mkdir -p "$REPORT_DIR"
+
+out="$REPORT_DIR/exp2_special_1expert.csv"
 echo "customers,avg_us,min_us,max_us,throughput" > "$out"
 
 for c in $CUSTOMER_SET; do
